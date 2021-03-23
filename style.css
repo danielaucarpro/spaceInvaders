@@ -1,0 +1,26 @@
+.canvas{
+    margin: 0px 0px 10px 0px ;
+}
+
+/* Footer */
+#socialMedia{
+    display: flex;
+    padding: 3em;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+}
+
+#footer-name{
+    margin-top: 20px;
+    margin-right: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+#socialMedia a{
+    margin-left: 10px;
+    font-size: 1em;
+    color: black;
+    text-decoration: none;
+}
