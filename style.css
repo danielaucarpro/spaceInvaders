@@ -1,4 +1,12 @@
-.canvas{
+body{
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    background-color: gray;
+    color: #ffe745;
+    text-shadow: 2px 2px #f32c0b;
+}
+
+#canvas{
     margin: 0px 0px 10px 0px ;
 }
 
@@ -8,19 +16,20 @@
     padding: 3em;
     align-items: center;
     justify-content: center;
-    background-color: #f8f9fa;
+    background-color: gray;
 }
 
 #footer-name{
     margin-top: 20px;
     margin-right: 20px;
+    font-size: .8em;
     align-items: center;
     justify-content: center;
 }
 
 #socialMedia a{
     margin-left: 10px;
-    font-size: 1em;
-    color: black;
+    font-size: .8em;
+    color: #ffe745;
     text-decoration: none;
 }
