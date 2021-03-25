@@ -17,6 +17,10 @@ body {
     font-family: "Press Start 2P", cursive;
 }
 
+#howToPlay{
+    font-size: 10pt;
+}
+
 #highScoreList{
     text-align: center;
     list-style: none;

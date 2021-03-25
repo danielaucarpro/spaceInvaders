@@ -18,6 +18,11 @@ const playerX = 0;
 const playerY = 200;
 const playerSize = 24;
 
+//projectile
+const projectile = new Image();
+projectile.src = '';
+const projectileX = '';
+
 //enemy
 const enemy = new Image();
 enemy.src = './img/enemy1.png';
@@ -31,9 +36,10 @@ function genRandom(max, min) {
 }
 
 //pipe
-const pipeWidth = topPipeBotY = 24;
+const pipeWidth = 24;
+const topPipeBotY = 24;
 const pipeGap = 200;
-const pipeX = 400;
+const pipeX = 450;
 
 //key mapping
 myCanvas.onkeyup = function (event) {
@@ -55,6 +61,9 @@ setInterval(() => {
 
     //draw player
     context.drawImage(player, playerX, playerY, playerSize * (103 / 63), playerSize);
+
+    //projectile
+    projectileX += 8;
 
     //pipes
     context.fillStyle = '#d01e00';
@@ -87,6 +96,8 @@ setInterval(() => {
 
 function reset() {
     //save the score on leader board
+    //sort 
+    
     let scoreList = document.getElementById('scoreList');
     let scoreArr = [];
 
