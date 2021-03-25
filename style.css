@@ -1,17 +1,25 @@
-body{
-    font-family: 'Press Start 2P', cursive;
+body {
+    font-family: "Press Start 2P", cursive;
     text-align: center;
     background-color: gray;
     color: #ffe745;
     text-shadow: 2px 2px #f32c0b;
 }
 
-#canvas{
-    margin: 0px 0px 10px 0px ;
+#canvas {
+    margin: 0px 0px 10px 0px;
+}
+
+/* Buttons */
+.btn {
+    height: 30px;
+    width: 13%;
+    border-radius: 5px;
+    font-family: "Press Start 2P", cursive;
 }
 
 /* Footer */
-#socialMedia{
+#socialMedia {
     display: flex;
     padding: 3em;
     align-items: center;
@@ -19,17 +27,17 @@ body{
     background-color: gray;
 }
 
-#footer-name{
+#footer-name {
     margin-top: 20px;
     margin-right: 20px;
-    font-size: .8em;
+    font-size: 0.8em;
     align-items: center;
     justify-content: center;
 }
 
-#socialMedia a{
+#socialMedia a {
     margin-left: 10px;
-    font-size: .8em;
+    font-size: 0.8em;
     color: #ffe745;
     text-decoration: none;
 }
