@@ -10,12 +10,16 @@ body {
     margin: 0px 0px 10px 0px;
 }
 
-/* Buttons */
 .btn {
     height: 30px;
     width: 13%;
     border-radius: 5px;
     font-family: "Press Start 2P", cursive;
+}
+
+#highScoreList{
+    text-align: center;
+    list-style: none;
 }
 
 /* Footer */

@@ -5,7 +5,8 @@ const context = myCanvas.getContext('2d');
 const interval = 24;
 const score = 0;
 const highscore = 0;
-const canvasSize = 400;
+const canvasSize = 450;
+//gravity
 playerY -= playerDY -= 0.5;
 
 //Creating image class for my assets
@@ -20,7 +21,7 @@ const playerSize = 24;
 //enemy
 const enemy = new Image();
 enemy.src = './img/enemy1.png';
-const enemyX = genRandom(350, 300);
+// const enemyX = genRandom(350, 300);
 const enemyY = genRandom(350, 150);
 const enemyLife = genRandom(3, 1);
 const enemySize = 24;
@@ -46,14 +47,11 @@ function shoot() {
 
 }
 
+//GAME LOOP
 setInterval(() => {
     //
     context.fillStyle = 'skyblue';
     context.fillRect(0, 0, canvasSize, canvasSize);
-
-    //draw enemies
-    //fill a rectangle with imgs
-    context.fillRect(enemy, enemyX, enemyY, enemySize * (103 / 63), enemySize);
 
     //draw player
     context.drawImage(player, playerX, playerY, playerSize * (103 / 63), playerSize);
@@ -64,14 +62,20 @@ setInterval(() => {
     pipeX < - pipeWidth && ((pipeX = canvasSize), (topPipeBotY = pipeGap * Math.random()));
 
     // more pipes
-    context.fillRect(pipeX, 0, pipeWidth, topPipeBottomY); // Draw top pipe
-    context.fillRect(pipeX, topPipeBottomY + pipeGap, pipeWidth, canvasSize); // Draw bottom pipe
+    context.fillRect(pipeX, 0, pipeWidth, topPipeBotY); // Draw top pipe
+    context.fillRect(pipeX, topPipeBotY + pipeGap, pipeWidth, canvasSize); // Draw bottom pipe
+
+    //draw enemies
+    //fill a rectangle with imgs
+    context.fillRect(enemy, enemyX, enemyY, enemySize * (103 / 63), enemySize);
+    enemyX -= 8;
 
     // start with other elements like score
     context.fillStyle = "black";
+    //syntax (text, x coordinate, y coordinate)
     context.fillText(score++, 9, 25); // Increase and draw score
 
-    highscore = highscore < score ? score : bestScore; // New best score?
+    highscore = highscore < score ? score : highscore; // New best score?
 
     context.fillText(`Best: ${highscore}`, 9, 50); // Draw best score
 
@@ -81,12 +85,12 @@ setInterval(() => {
 
 }, interval)
 
-function reset(){
-    let scoreList = document.getElementById('highScoreList');
+function reset() {
+    //save the score on leader board
+    let scoreList = document.getElementById('scoreList');
     let scoreArr = [];
 
-    if(score < highscore && score >= highscore){
-        scoreArr += score;
+    if (score < highscore && score >= highscore) {
         scoreList.append(`<li>${score}</li>`);
         scoreArr.sort()
     }
