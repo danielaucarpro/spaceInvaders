@@ -18,10 +18,23 @@ const playerX = 0;
 const playerY = 200;
 const playerSize = 24;
 
+//player object
+// const player = {
+//     life = 3,
+//     xPosition = 0,
+//     yPosition = 200,
+//     size = 24
+// }
+
 //projectile
 const projectile = new Image();
 projectile.src = '';
-const projectileX = '';
+const colRectP = {
+    x: 20,
+    y: 10,
+    width: 10,
+    height: 10
+}
 
 //enemy
 const enemy = new Image();
@@ -30,6 +43,19 @@ enemy.src = './img/enemy1.png';
 const enemyY = genRandom(350, 150);
 const enemyLife = genRandom(3, 1);
 const enemySize = 24;
+
+const enemy = {
+    life: 1,
+    xPosition: 0,
+    yPosition: genRandom(350, 150),
+    size: 24,
+    colRect = {
+        x: 5,
+        y: 5,
+        width: 50,
+        height: 50
+    }
+}
 
 function genRandom(max, min) {
     Math.floor(Math.random() * (max - min) + min);
@@ -79,6 +105,15 @@ setInterval(() => {
     context.fillRect(enemy, enemyX, enemyY, enemySize * (103 / 63), enemySize);
     enemyX -= 8;
 
+    //collision
+    if (colRectE.x < colRectP.x + colRectP.width &&
+        colRectE.x + colRectE.width > colRectP.x &&
+        colRectE.y < colRectP.y + colRectP.height &&
+        colRectE.y + colRectE.height > colRectP.y) {
+        delete enemy;
+        delete colRectE;
+    }
+
     // start with other elements like score
     context.fillStyle = "black";
     //syntax (text, x coordinate, y coordinate)
@@ -97,12 +132,12 @@ setInterval(() => {
 function reset() {
     //save the score on leader board
     //sort 
-    
+    scoreArr += score;
     let scoreList = document.getElementById('scoreList');
     let scoreArr = [];
 
-    if (score < highscore && score >= highscore) {
-        scoreList.append(`<li>${score}</li>`);
+    for (i = 0; i < scoreArr.length; i++) {
+        scoreList.append(`<li>${scoreArr[i]}</li>`);
         scoreArr.sort()
     }
 }
